@@ -1,23 +1,22 @@
-name: Deploy Angular App (Dev Only)
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Déclenche le workflow à chaque push sur main
-  workflow_dispatch:
+      - main
 
 jobs:
-  build-and-serve:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # ou 16, selon ton projet
+          node-version: 18
 
       - name: Install dependencies
         run: npm install
@@ -25,5 +24,8 @@ jobs:
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
-      - name: Serve the Angular app
-        run: ng serve --host 0.0.0.0 --port 4200
+      - name: Build Angular project
+        run: ng build --configuration production --base-href=/freerban-event/
+
+      - name: Deploy to GitHub Pages
+        run: npx angular-cli-ghpages --dir=dist/freerban-event
