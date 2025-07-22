@@ -1,0 +1,21 @@
+<section id="contact" class="contact urban-fade-in">
+  <h2>Contactez-nous</h2>
+  <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput name="name" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" ngModel required email>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Message</mat-label>
+      <textarea matInput name="message" ngModel required rows="5"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Send</button>
+  </form>
+</section>

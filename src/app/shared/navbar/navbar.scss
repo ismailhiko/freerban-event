@@ -1,0 +1,30 @@
+.urban-navbar {
+  background: #181818 !important;
+  color: #fff !important;
+  font-family: 'Roboto', 'Inter', Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  .logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  a[mat-button] {
+    color: #fff;
+    font-weight: 500;
+    margin-left: 1rem;
+    text-transform: uppercase;
+    &.active {
+      color: #bdbdbd;
+      border-bottom: 2px solid #bdbdbd;
+    }
+    &:hover {
+      color: #bdbdbd;
+      background: rgba(255,255,255,0.04);
+    }
+  }
+}

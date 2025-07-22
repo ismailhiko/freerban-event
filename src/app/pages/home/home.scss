@@ -1,0 +1,91 @@
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: #181818;
+  color: #fff;
+  padding: 2rem 1rem 0 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  position: relative;
+  overflow: hidden;
+  .hero-content {
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 2;
+    h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      .urban-highlight {
+        color: #bdbdbd;
+        letter-spacing: 2px;
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      color: #bdbdbd;
+      margin-top: 1rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.9rem 2.2rem;
+      background: #fff;
+      color: #181818;
+      font-weight: 700;
+      border-radius: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      &:hover {
+        background: #bdbdbd;
+        color: #181818;
+        transform: scale(1.07) translateY(-2px);
+      }
+    }
+  }
+  .parallax-container {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+    .parallax-img {
+      width: 100vw;
+      max-width: 1200px;
+      opacity: 0.18;
+      filter: grayscale(1) contrast(1.1);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1.1);
+      will-change: transform;
+      transition: opacity 0.5s;
+    }
+  }
+}
+.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideInUp 1.1s cubic-bezier(.4,2,.6,1) 0.2s forwards;
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s cubic-bezier(.4,2,.6,1) 0.7s forwards;
+}
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.urban-img-shadow {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}

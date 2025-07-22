@@ -1,0 +1,42 @@
+<section id="about" class="about urban-fade-in">
+  <h2>À propos de nous</h2>
+  <blockquote class="about-quote">"L'art du déplacement, c'est la liberté de la ville."</blockquote>
+  <div class="timeline-mock">
+    <div class="timeline-event">2021 : Création de l'équipe</div>
+    <div class="timeline-event">2021 : Premier spectacle public</div>
+    <div class="timeline-event">2022 - 2025 : Tournée urbaine</div>
+  </div>
+  <div class="team-mock">
+    <div *ngFor="let member of members" class="team-member urban-img-shadow flip-card" (click)="openMember(member)" style="cursor:pointer;">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img [src]="member.photo" [alt]="member.name" />
+          <span>{{member.name}}</span>
+        </div>
+        <div class="flip-card-back">
+          <span>Spécialité : {{member.specialite}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal dynamique -->
+  <div *ngIf="selectedMember() as m" class="member-modal-backdrop" (click)="closeModal()">
+    <div class="member-modal" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      <img [src]="m.photo" [alt]="m.name" class="modal-photo" />
+      <h3>{{m.name}}</h3>
+      <ul class="modal-infos">
+        <li><strong>Taille :</strong> {{m.taille}}</li>
+        <li><strong>Âge :</strong> {{m.age}} ans</li>
+        <li><strong>Spécialité :</strong> {{m.specialite}}</li>
+      </ul>
+      <div class="modal-perfs">
+        <strong>Performances :</strong>
+        <ul>
+          <li *ngFor="let perf of m.performances">{{perf}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

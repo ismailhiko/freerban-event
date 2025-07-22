@@ -1,0 +1,85 @@
+.contact {
+  padding: 2rem 1rem;
+  background: #181818;
+  color: #fff;
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #bdbdbd;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    mat-form-field {
+      width: 100%;
+      background: #222;
+      border-radius: 0.5rem;
+      .mat-form-field-flex {
+        background: #222;
+        color: #fff;
+      }
+      .mat-input-element, .mat-form-field-label {
+        color: #bdbdbd !important;
+      }
+    }
+    button[mat-raised-button] {
+      background: #bdbdbd;
+      color: #181818;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      &:hover {
+        background: #fff;
+        color: #181818;
+        transform: scale(1.04);
+      }
+    }
+  }
+  .contact-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    .contact-map-mock {
+      width: 320px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      margin-bottom: 1rem;
+      filter: grayscale(0.7) contrast(1.1);
+    }
+    .contact-socials {
+      display: flex;
+      gap: 1.2rem;
+      .social-icon {
+        font-size: 2rem;
+        color: #bdbdbd;
+        background: #222;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        transition: background 0.3s, color 0.3s, transform 0.3s;
+        text-decoration: none;
+        &:hover {
+          background: #fff;
+          color: #181818;
+          transform: scale(1.13) rotate(-8deg);
+        }
+      }
+    }
+  }
+}
+.urban-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s cubic-bezier(.4,2,.6,1) forwards;
+}
