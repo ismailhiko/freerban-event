@@ -19,14 +19,15 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
-      - name: Build Angular project with custom outputPath
-        run: |
-          ng build --configuration production --base-href=/freerban-event/ --output-path=dist/freerban-event
+      - name: Build Angular project
+        run: ng build --configuration production --base-href=/freerban-event/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/freerban-event
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx angular-cli-ghpages --dir=dist/freerban-event --no-silent --branch=gh-pages
