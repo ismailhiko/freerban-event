@@ -1,0 +1,29 @@
+name: Deploy Angular App (Dev Only)
+
+on:
+  push:
+    branches:
+      - main  # Déclenche le workflow à chaque push sur main
+  workflow_dispatch:
+
+jobs:
+  build-and-serve:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # ou 16, selon ton projet
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Serve the Angular app
+        run: ng serve --host 0.0.0.0 --port 4200
