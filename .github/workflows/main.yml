@@ -1,4 +1,4 @@
-name: Deploy Angular App to GitHub Pages
+name: Deploy Angular App with GitHub Pages
 
 on:
   push:
@@ -24,8 +24,11 @@ jobs:
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
-      - name: Build Angular project
+      - name: Build Angular app
         run: ng build --configuration production --base-href=/freerban-event/
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/freerban-event/browser
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/freerban-event/browser
