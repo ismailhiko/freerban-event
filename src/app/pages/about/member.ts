@@ -24,7 +24,7 @@ export interface Member {
     },
     {
       id: 2,
-      name: 'Victor Rodriquez',
+      name: 'Victor Rodrigues',
       photo: 'assets/victor.jpg',
       taille: '1m67',
       age: 27,
